@@ -1,32 +1,29 @@
 import * as React from 'react'
 import Hangman from './Hangman'
+//import GuessLetterForm from './GuessLetterForm'
+import NewGameButton from './NewGameButton'
 import { connect } from 'react-redux'
-import { newGame, makeGuess } from '../actions/game'
-import GuessLetterFormContainer from './GuessLetterFormContainer';
+import { newGame } from '../actions/game'
 
 class HangmanContainer extends React.PureComponent {
-  
-  handleClick = (event) => {
-    return this.props.newGame(event)
-  };
-  
+  state = {}
+
   componentDidMount() {
     return this.props.newGame()
   };
 
   render() {
     return (
-    <div>
-      <Hangman/>
-      <GuessLetterFormContainer/>
-      <button onClick={event => this.handleClick(event)}>New Game</button>
-    </div>
+      <div>
+        <NewGameButton newGame={this.props.newGame}/>
+        <Hangman/>
+      </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  
+    game : state.game
 })
 
-export default connect(mapStateToProps, {newGame, makeGuess})(HangmanContainer)
+export default connect(mapStateToProps, {newGame})(HangmanContainer)

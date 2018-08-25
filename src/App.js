@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-//import {connect} from 'react-redux';
 import {Provider} from 'react-redux';
 import store from './store';
 import {Route} from 'react-router-dom'
