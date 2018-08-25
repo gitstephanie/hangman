@@ -11,12 +11,6 @@ export function newGame() {
       guesses: []
     }
   }
-  /*
-    return {
-    type: 'SET_ALBUMS',
-    payload : albums
-  }
-  */
 }
 
 export function makeGuess(letter) {
