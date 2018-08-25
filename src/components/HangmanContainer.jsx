@@ -3,6 +3,7 @@ import Hangman from './Hangman'
 import GuessLetterList from './GuessLetterList'
 import NewGameButton from './NewGameButton'
 import PlayingField from './PlayingField'
+import WrongGuessCounter from './WrongGuessCounter'
 import { connect } from 'react-redux'
 import { newGame, makeGuess } from '../actions/game'
 
@@ -18,6 +19,7 @@ class HangmanContainer extends React.PureComponent {
       <div>
         <Hangman/>
         <PlayingField word={this.props.word} guesses={this.props.guesses}/>
+        <WrongGuessCounter word={this.props.word} guesses={this.props.guesses}/>
         <GuessLetterList makeGuess={this.props.makeGuess}/>
         <NewGameButton newGame={this.props.newGame}/>
       </div>
