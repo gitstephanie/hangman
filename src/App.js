@@ -13,18 +13,11 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <Route exact path={`/`} component={HomeContainer}/>
-          <Route path={`/hangman`} component={HangmanContainer}/>
+          <Route exact path={`/hangman`} component={HangmanContainer}/>
         </div>
       </Provider>
     );
   }
 }
-/*
-const mapStateToProps = (state) => {
-  return {
 
-  }
-}
-export default connect (mapStateToProps) (App);
-*/
 export default App;
