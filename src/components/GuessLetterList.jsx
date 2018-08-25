@@ -9,7 +9,7 @@ export default function GuessLetterList(props) {
             {alphabet.map(
                 letter =>
                 <li key={letter} onClick={() => props.makeGuess(letter)}>
-                    {letter}
+                {`  ${letter}  `} |
                 </li>
             )}
         </ul>

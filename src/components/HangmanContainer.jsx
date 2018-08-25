@@ -1,4 +1,5 @@
 import * as React from 'react'
+import '../styling/Hangmancontainer.css';
 import Hangman from './Hangman'
 import GuessLetterList from './GuessLetterList'
 import NewGameButton from './NewGameButton'
@@ -29,9 +30,12 @@ class HangmanContainer extends React.Component {
     console.log(this.props.word, this.props.guesses)
     return (
       <div>
-        <Hangman/>
+        <h1>Hangman</h1>
+        <Hangman word={this.props.word} guesses={this.props.guesses}/>
         <PlayingField word={this.props.word} guesses={this.props.guesses}/>
+        <p>Wrong guessed letters so far:</p>
         <WrongGuessCounter word={this.props.word} guesses={this.props.guesses}/>
+        <p>Click on a letter to make a guess:</p>
         <GuessLetterList makeGuess={this.props.makeGuess}/>
         <NewGameButton newGame={this.props.newGame}/>
       </div>

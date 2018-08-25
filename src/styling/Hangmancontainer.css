@@ -1,0 +1,20 @@
+body {
+    background-color: aqua;
+    text-align: center
+}
+
+li {
+    list-style-type: none;
+    display: inline;
+    margin: 20 px;
+    font-size: 60 px;
+    cursor: pointer;
+}
+
+li: hover{
+    background-color: yellow;
+}
+
+button {
+    cursor: pointer;
+}
