@@ -2,19 +2,15 @@ import * as React from 'react'
 
 export default class GuessLetterForm extends React.PureComponent {
 
+  
+
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log('just submitted')
-/*
-    if (this.state.name && this.state.description) {
-      this.props.addPizza({
-        name: this.state.name,
-        description: this.state.description,
-        ingredients: []
+    console.log('just submitted', this.props)
+      this.props.makeGuess({
+        letter: this.props.letter
       })
-    }
-*/
-}
+  }
 
   render() {
     return (
@@ -23,10 +19,11 @@ export default class GuessLetterForm extends React.PureComponent {
       <form onSubmit={this.handleSubmit}>
         <label>
           Letter
-          <input type="text" guess="letter" onChange={this.handleChange} />
+          <input type="text" key="letter" name="letter" onChange={this.handleChange} />
         </label>
         <input type="submit" value="Submit" />
       </form>
-    </div>)
+    </div>
+    )
   }
 }
