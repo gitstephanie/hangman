@@ -6,12 +6,24 @@ import PlayingField from './PlayingField'
 import WrongGuessCounter from './WrongGuessCounter'
 import { connect } from 'react-redux'
 import { newGame, makeGuess } from '../actions/game'
+import {isWinner, gameFinished} from '../lib/game'
 
-class HangmanContainer extends React.PureComponent {
+class HangmanContainer extends React.Component {
 
   componentDidMount() {
     return this.props.newGame()
   };
+  shouldComponentUpdate() {
+    if (this.props.word && this.props.guesses) {
+      if (isWinner(this.props.word, this.props.guesses)) {
+        console.log('Winner winner chicken dinner')
+      }
+      if (gameFinished(this.props.word, this.props.guesses)) {
+        console.log('Game finished!')
+      }
+    }
+    return true
+  }
 
   render() {
     console.log(this.props.word, this.props.guesses)
