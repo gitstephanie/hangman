@@ -13,13 +13,13 @@ class HangmanContainer extends React.Component {
   componentDidMount() {
     return this.props.newGame()
   };
-  shouldComponentUpdate() {
+  componentDidUpdate() {
     if (this.props.word && this.props.guesses) {
       if (isWinner(this.props.word, this.props.guesses)) {
-        console.log('Winner winner chicken dinner')
+        window.alert('Winner winner chicken dinner')
       }
       if (gameFinished(this.props.word, this.props.guesses)) {
-        console.log('Game finished!')
+        window.alert('Game finished!')
       }
     }
     return true
