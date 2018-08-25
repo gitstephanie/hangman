@@ -15,10 +15,9 @@ export function newGame() {
 
 export function makeGuess(letter) {
   console.log('Made guess', letter)
+
   return {
     type: 'MAKE_GUESS',
-    payload: { 
-      letter: letter
-    }
+    payload: letter
   }
 }
