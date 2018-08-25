@@ -7,11 +7,10 @@ export default (state = {}, action = {}) => {
                 action.payload
             )
         case MAKE_GUESS:
-            const updatedState = state
-            updatedState.guesses.push(action.payload)
-            return (
-                updatedState
-            )
+            return {
+                ...state,
+                guesses: state.guesses.concat([action.payload])
+            }
         default:
             return state
     }

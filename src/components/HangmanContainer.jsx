@@ -2,6 +2,7 @@ import * as React from 'react'
 import Hangman from './Hangman'
 import GuessLetterList from './GuessLetterList'
 import NewGameButton from './NewGameButton'
+import PlayingField from './PlayingField'
 import { connect } from 'react-redux'
 import { newGame, makeGuess } from '../actions/game'
 
@@ -12,18 +13,21 @@ class HangmanContainer extends React.PureComponent {
   };
 
   render() {
+    console.log(this.props.word, this.props.guesses)
     return (
       <div>
-        <NewGameButton newGame={this.props.newGame}/>
         <Hangman/>
+        <PlayingField word={this.props.word} guesses={this.props.guesses}/>
         <GuessLetterList makeGuess={this.props.makeGuess}/>
+        <NewGameButton newGame={this.props.newGame}/>
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-    game : state.game
+    word : state.game.word,
+    guesses : state.game.guesses,
 })
 
 export default connect(mapStateToProps, {newGame,makeGuess})(HangmanContainer)
